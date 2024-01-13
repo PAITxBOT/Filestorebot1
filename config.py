@@ -32,7 +32,8 @@ def is_enabled(value, default):
 # Owner Information
 API_ID = int(environ.get("API_ID", "10261086"))
 API_HASH = environ.get("API_HASH", "9195dc0591fbdb22b5711bcd1f437dab")
-ADMINS = int(environ.get("ADMINS", "1498007933 1426588906"))
+#ADMINS = int(environ.get("ADMINS", "1498007933 1426588906"))
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1498007933 1426588906').split()]ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 
 # Database Information
 CLONE_DB_URI = environ.get("CLONE_DB_URI", "mongodb+srv://Abdulxfilestore:Abdulxfilestore@cluster0.qplh8td.mongodb.net/?retryWrites=true&w=majority")
